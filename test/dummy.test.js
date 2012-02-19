@@ -26,6 +26,7 @@ describe('dummy', function() {
         		dataBuffer = subdata[subdata.length - 1];
             });
             
+            //handle the data by prepending it with 'you sent : ', righto
             var handle = function(_data) {
                 var responseData = "you sent : " + _data.toString();
                 _socket.write(responseData);
@@ -48,6 +49,7 @@ describe('dummy', function() {
         });
     });
     describe('#sendDataExpectingResponse()', function(_done) {
+        //the following two tests are mostly self explanatory
         it('should get a callback when the data responded was equal to what was respected', function(_done) {
             var dummy = new Dummy(false, serverPort, '127.0.0.1', '\n', function() {
                 dummy.sendItemExpectResponse('hey\n', 'you sent : hey', function(_expected, _data) {
@@ -57,7 +59,7 @@ describe('dummy', function() {
             });
         });
         it('should function correctly with nested calls', function() {
-            var dummy = new Dummy(null, serverPort, '127.0.0.1', '\n', function() {
+            var dummy = new Dummy(false, serverPort, '127.0.0.1', '\n', function() {
                 dummy.sendItemExpectResponse('hey\n', 'you sent : hey', function(_expected, _data) {
                     _expected.should.be.true;
                     dummy.sendItemExpectResponse('yo\n', 'you sent : yo', function(_expected, _data) {
