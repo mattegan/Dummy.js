@@ -69,7 +69,7 @@ This makes a lot more sense, and is pretty easy to follow.
 
 ###Reference
 ---
-#####*Dummy*(secure, port, hostname, delimiter, connectionCallback)
+#####*+ Dummy*(secure, port, hostname, delimiter, connectionCallback)
 
 * **secure** : either an object or something else - if object, dummy uses it as a settings object for a tls connection - this can cause an error if the tls library doesn't enjoy your object, pass *false* if not using a secure connection
 * **port** : pretty self explanatory
@@ -77,7 +77,7 @@ This makes a lot more sense, and is pretty easy to follow.
 * **delimiter** : how is the server separating messages
 * **connectionCallback** : a function to call when the client has connected to the server
     
-#####*sendDataExpectResponse*(data, response, responseCallback(expected, data))
+#####*- sendDataExpectResponse*(data, response, responseCallback(expected, data))
 
 * **data** : the data to send to the server
 * **response** : the response to be expecting from the server
