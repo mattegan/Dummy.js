@@ -4,12 +4,6 @@ Simple testing of node tcp/tls servers.
 
 Useful with testing libraries such as [Mocha](http://visionmedia.github.com/mocha/) and [Should.js](https://github.com/visionmedia/should.js/).
 
-###Getting Dummy.js
----
-    npm install dummy
-
-    var Dummy = require('dummy');
-
 ###Why?
 ---
 Imagine a server that responds with the data you sent it, prepended with 'you sent : ', if we send the server 'hey' it should respond with 'you sent : hey'. Pretty simple, right?. Let's say you wanted to write some tests for your nifty server that verified it's behavior, even when multiple things are sent to the server. Using Mocha and Should.js, let us examine what this code might look like without Dummy.js.
