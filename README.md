@@ -79,17 +79,14 @@ This makes a lot more sense, and is pretty easy to follow.
     
 #####*sendDataExpectResponse*(data, response, responseCallback(expected, data))
 
-Takes three arguments:
-
 * **data** : the data to send to the server
 * **response** : the response to be expecting from the server
 * **responseCallback** : the callback to call when the server has (or has not) received data in response to sending data, the callback will have two arguments, a boolean that is true or false depending on the server's response matching the response expected, and a data object, that contains the data the server actually received 
     
-#####notes
+###important things
+---
+Right now, only send more data to the server in callbacks that the Dummy calls. This keeps weird  conditions from happening. I am working on an implementation around this issue.
 
-Right now, only send more data to the server in callbacks that the Dummy calls. This keeps weird race conditions from happening. I am working on an implementation around this issue.
+This project is very short and sweet, however, I will be making changes to it frequently. Feel free to fork me. Also, feel free to comment on my coding style, I'm new to Javascript, and I'm not sure if I'm doing it right.
 
-This project is very short and sweet, however, I will be making changes to it frequently.
-
-Thanks!
-    
+*Thanks!*
