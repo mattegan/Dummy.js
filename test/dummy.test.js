@@ -41,7 +41,7 @@ describe('dummy', function() {
     })
     describe('#Dummy()', function() {
         it('should return a new dummy client, and connect to a server', function(_done) {
-            var dummy = new Dummy(false, serverPort, '127.0.0.1', function() {
+            var dummy = new Dummy(false, serverPort, '127.0.0.1', '\n', function() {
                 should.exist(dummy);
                 _done();
             });
@@ -49,13 +49,23 @@ describe('dummy', function() {
     });
     describe('#sendDataExpectingResponse()', function(_done) {
         it('should get a callback when the data responded was equal to what was respected', function(_done) {
-            var dummy = new Dummy(false, serverPort, '127.0.0.1', function() {
-                var dataForResponsesWithCallbacks = [{data: "hey\n", response: "you sent : hey", callback: function(_expected, _data) {
+            var dummy = new Dummy(false, serverPort, '127.0.0.1', '\n', function() {
+                dummy.sendItemExpectResponse('hey\n', 'you sent : hey', function(_expected, _data) {
                     _expected.should.be.true;
-                    done();
-                }, waitForExpected: null}]
-                dummy.sendDataExpectingResponse(dataForResponsesWithCallbacks, '\n', function(){});
+                    _done();
+                });
             });
-        })
+        });
+        it('should function correctly with nested calls', function() {
+            var dummy = new Dummy(null, serverPort, '127.0.0.1', '\n', function() {
+                dummy.sendItemExpectResponse('hey\n', 'you sent : hey', function(_expected, _data) {
+                    _expected.should.be.true;
+                    dummy.sendItemExpectResponse('yo\n', 'you sent : yo', function(_expected, _data) {
+                        _expected.should.be.true;
+                        _done();
+                    });
+                });
+            });
+        });
     });
 });
