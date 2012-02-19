@@ -4,6 +4,16 @@ Simple testing of node tcp/tls servers.
 
 Useful with testing libraries such as [Mocha](http://visionmedia.github.com/mocha/) and [Should.js](https://github.com/visionmedia/should.js/).
 
+###I Want.
+---
+Getting it:
+    
+    npm install dummy
+
+Using it:
+
+    var Dummy = require('dummy');
+
 ###Why?
 ---
 Imagine a server that responds with the data you sent it, prepended with 'you sent : ', if we send the server 'hey' it should respond with 'you sent : hey'. Pretty simple, right?. Let's say you wanted to write some tests for your nifty server that verified it's behavior, even when multiple things are sent to the server. Using Mocha and Should.js, let us examine what this code might look like without Dummy.js.
@@ -83,7 +93,7 @@ This makes a lot more sense, and is pretty easy to follow.
 * **response** : the response to be expecting from the server
 * **responseCallback** : the callback to call when the server has (or has not) received data in response to sending data, the callback will have two arguments, a boolean that is true or false depending on the server's response matching the response expected, and a data object, that contains the data the server actually received 
     
-###important things
+###Important Things
 ---
 Right now, only send more data to the server in callbacks that the Dummy calls. This keeps weird  conditions from happening. I am working on an implementation around this issue.
 
