@@ -1,5 +1,5 @@
 #Dummy.js
-
+* * *
 Simple testing of node tcp/tls servers.
 
 Useful with testing libraries such as [Mocha](http://visionmedia.github.com/mocha/) and [Should.js](https://github.com/visionmedia/should.js/).
@@ -69,7 +69,7 @@ This makes a lot more sense, and is pretty easy to follow.
 
 ###Reference
 
-####Dummy(secure, port, hostname, delimiter, connectionCallback) constructor
+#####Dummy(secure, port, hostname, delimiter, connectionCallback)
 
 The dummy constructor takes five arguments:
     secure : either an object or something else - if object, dummy uses it as a settings object for a tls connection
@@ -78,7 +78,7 @@ The dummy constructor takes five arguments:
     delimiter : how is the server separating messages
     connectionCallback : a function to call when the client has connected to the server
     
-####sendDataExpectResponse(data, response, responseCallback(expected, data))
+#####sendDataExpectResponse(data, response, responseCallback(expected, data))
 
 Takes three arguments:
     data : the data to send to the server
