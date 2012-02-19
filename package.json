@@ -1,0 +1,20 @@
+{
+  "author": "Matt Egan <matt.matt.egan@gmail.com>",
+  "name": "dummy",
+  "description": "a tcp/tls dummy client for server testing",
+  "version": "0.1.0",
+  "homepage": "http://www.github.com/mattegan/Dummy.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattegan/Dummy.js.git"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "engines": {
+    "node": "~0.6.10"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
