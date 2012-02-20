@@ -48,11 +48,11 @@ describe('dummy', function() {
             });
         });
     });
-    describe('#sendDataExpectingResponse()', function(_done) {
+    describe('#send()', function(_done) {
         //the following two tests are mostly self explanatory
         it('should get a callback when the data responded was equal to what was respected', function(_done) {
             var dummy = new Dummy(false, serverPort, '127.0.0.1', '\n', function() {
-                dummy.sendItemExpectResponse('hey\n', 'you sent : hey', function(_expected, _data) {
+                dummy.send('hey\n', 'you sent : hey', function(_expected, _data) {
                     _expected.should.be.true;
                     _done();
                 });
@@ -60,9 +60,9 @@ describe('dummy', function() {
         });
         it('should function correctly with nested calls', function() {
             var dummy = new Dummy(false, serverPort, '127.0.0.1', '\n', function() {
-                dummy.sendItemExpectResponse('hey\n', 'you sent : hey', function(_expected, _data) {
+                dummy.send('hey\n', 'you sent : hey', function(_expected, _data) {
                     _expected.should.be.true;
-                    dummy.sendItemExpectResponse('yo\n', 'you sent : yo', function(_expected, _data) {
+                    dummy.send('yo\n', 'you sent : yo', function(_expected, _data) {
                         _expected.should.be.true;
                         _done();
                     });
