@@ -65,8 +65,9 @@ This is where Dummy.js comes in handy. Let's look at the same problem again, but
         });
         it('should respond correctly', function(done) {
             var dummy = new Dummy(false, 1234, '127.0.0.1', '\n', function() {
-                dummy.sendDataExpectResponse('hey\n', 'you sent : hey', function(expected, data) {
-                    dummy.sendDataExpectResponse('haha\n', 'you sent : haha', function(expected, data) {
+                dummy.send('hey\n', 'you sent : hey', function(expected, data) {
+                    expected.should.equal.true;
+                    dummy.send('haha\n', 'you sent : haha', function(expected, data) {
                         expected.should.equal.true;
                         done();
                     });
@@ -87,9 +88,9 @@ This makes a lot more sense, and is pretty easy to follow.
 * **delimiter** : how is the server separating messages
 * **connectionCallback** : a function to call when the client has connected to the server
     
-#####*- sendDataExpectResponse*(data, response, responseCallback(expected, data))
+#####*- send*(data, response, responseCallback(expected, data))
 
-* **data** : the data to send to the server
+* **data** : the data to write to the server
 * **response** : the response to be expecting from the server
 * **responseCallback** : the callback to call when the server has (or has not) received data in response to sending data, the callback will have two arguments, a boolean that is true or false depending on the server's response matching the response expected, and a data object, that contains the data the server actually received 
     
