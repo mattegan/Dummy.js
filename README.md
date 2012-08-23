@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/mattegan/Dummy.js.png)](http://travis-ci.org/mattegan/Dummy.js)
 #Dummy.js
 * * *
 Simple testing of node tcp/tls servers.
