@@ -2,7 +2,7 @@
 * * *
 Simple testing of node tcp/tls servers.
 
-Useful with testing libraries such as [Mocha](http://visionmedia.github.com/mocha/) and [Should.js](https://github.com/visionmedia/should.js/).
+Useful with testing libraries such as [Mocha](https://mochajs.org/) and [Should.js](https://github.com/visionmedia/should.js/).
 
 ###I Want.
 ---
